@@ -2,60 +2,27 @@ package main
 
 import "sort"
 
+type cmp func(ingredient, ingredient) bool
+
 type sortable struct {
-	foods foods
-	less  func(int, int) bool
+	foods ingredients
+	cmp   cmp
 }
 
 func (s sortable) Len() int           { return len(s.foods) }
 func (s sortable) Swap(i, j int)      { s.foods[i], s.foods[j] = s.foods[j], s.foods[i] }
-func (s sortable) Less(i, j int) bool { return s.less(i, j) }
+func (s sortable) Less(i, j int) bool { return s.cmp(s.foods[i], s.foods[j]) }
 
-func (fs foods) sortByName() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].name < fs[j].name }})
-	return fs
+func (ings ingredients) sortBy(fn cmp) ingredients {
+	sort.Sort(sortable{ings, fn})
+	return ings
 }
 
-func (fs foods) sortByDollars() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].dollars < fs[j].dollars }})
-	return fs
-}
-
-func (fs foods) sortByG() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].g < fs[j].g }})
-	return fs
-}
-
-func (fs foods) sortByNetCarbs() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].netCarbs() < fs[j].netCarbs() }})
-	return fs
-}
-
-func (fs foods) sortByProtein() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].protein < fs[j].protein }})
-	return fs
-}
-
-func (fs foods) sortByFat() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].fat < fs[j].fat }})
-	return fs
-}
-
-func (fs foods) sortByFiber() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].fiber < fs[j].fiber }})
-	return fs
-}
-
-func (fs foods) sortByCalories() foods {
-	sort.Sort(sortable{fs, func(i, j int) bool { return fs[i].calories < fs[j].calories }})
-	return fs
-}
-
-func (fs foods) reverse() foods {
-	// https://github.com/golang/go/wiki/SliceTricks
-	for i := len(fs)/2 - 1; i >= 0; i-- {
-		opp := len(fs) - 1 - i
-		fs[i], fs[opp] = fs[opp], fs[i]
-	}
-	return fs
-}
+func byName(a, b ingredient) bool     { return a.name < b.name }
+func byDollars(a, b ingredient) bool  { return a.dollars > b.dollars }
+func byG(a, b ingredient) bool        { return a.amt > b.amt }
+func byNetCarbs(a, b ingredient) bool { return a.netCarbs() > b.netCarbs() }
+func byProtein(a, b ingredient) bool  { return a.protein > b.protein }
+func byFat(a, b ingredient) bool      { return a.fat > b.fat }
+func byFiber(a, b ingredient) bool    { return a.fiber > b.fiber }
+func byCalories(a, b ingredient) bool { return a.calories > b.calories }
