@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 const (
-	header = "INGREDIENT        NET CARBS   PROTEIN   CALORIES       $    AMT\n"
-	breaks = "---------------------------------------------------------------\n"
+	header = "INGREDIENT        NET CARBS   PROTEIN   CALORIES       $   FIBER    AMT\n"
+	breaks = "-----------------------------------------------------------------------\n"
 )
 
 // foodData includes only basic information about the food that I found online.
@@ -66,14 +66,27 @@ type ingredient struct {
 }
 
 func (ing ingredient) String() string {
-	return fmt.Sprintf("%15s %11.0f %9.0f %10.0f %7.2f %6.0f\n",
+	return fmt.Sprintf("%15s %11.0f %9.0f %10.0f %7.2f %7.0f %6.0f\n",
 		ing.name,
 		ing.netCarbs(),
 		ing.protein,
 		ing.calories,
 		ing.dollars,
+		ing.fiber,
 		ing.amt,
 	)
+}
+
+func (a ingredient) difference(b ingredient) (diff ingredient) {
+	diff.name = "diff"
+	diff.amt = 0
+	diff.dollars = a.dollars - b.dollars
+	diff.carbs = a.carbs - b.carbs
+	diff.protein = a.protein - b.protein
+	diff.fat = a.fat - b.fat
+	diff.fiber = a.fiber - b.fiber
+	diff.calories = a.calories - b.calories
+	return
 }
 
 type ingredients []ingredient
@@ -96,5 +109,15 @@ func (fs ingredients) String() (out string) {
 	for _, f := range fs {
 		out += f.String()
 	}
+	return
+}
+
+func goal() (ing ingredient) {
+	ing.name = "goal"
+	ing.carbs = 35 + 20
+	ing.dollars = 10
+	ing.protein = 110
+	ing.fiber = 35
+	ing.calories = 2100
 	return
 }

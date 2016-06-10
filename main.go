@@ -4,20 +4,19 @@ import "fmt"
 
 func main() {
 	recipe := ingredients{
-		spinachRaw().g(111),
-		hempSeeds().g(27),
-		miniPeppersEach().count(3),
-		eggEach().count(3),
-		coconutOil().g(20),
-		ranch().g(37),
+		eggEach().count(1),
+		spinachRaw().g(85),
+		sardinesCan().count(1),
+		chiaSeeds().g(10),
+		italian().g(29),
 
-		spinachRaw().g(103),
-		hempSeeds().g(24),
-		coconutOil().g(15),
-		cucumber().g(83),
-		herring().count(1),
-		eggEach().count(2),
-		ranch().g(23),
-	}.sort(byProtein)
+		spinachRaw().g(81),
+		avocado().g(151),
+		chiaSeeds().g(10),
+		cucumber().g(82),
+		italian().g(31),
+		hempSeeds().g(12),
+		eggEach().count(1),
+	}.sort(byCalories)
 	fmt.Print(header, breaks, recipe, breaks, recipe.sum("TOTAL"))
 }

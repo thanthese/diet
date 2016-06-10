@@ -1,8 +1,5 @@
 package main
 
-// All units are in terms of per gram. Unless the name contains "serving"
-// "can", "each", or similar, then it's per serving.
-
 // nfs = nutrition facts serving
 
 const gramsInAPound = 453.592
@@ -17,6 +14,32 @@ func spinachRaw() (fd foodData) {
 	fd.carbs = 4 / nfs
 	fd.fiber = 2 / nfs
 	fd.protein = 3 / nfs
+	return
+}
+
+func avocado() (fd foodData) {
+	nfs := 100.0
+	fd.name = "avocado"
+	fd.serving = 201
+	fd.dollars = 1 / 201.0
+	fd.calories = 160 / nfs
+	fd.fat = 15 / nfs
+	fd.carbs = 9 / nfs
+	fd.fiber = 7 / nfs
+	fd.protein = 2 / nfs
+	return
+}
+
+func lentils() (fd foodData) {
+	nfs := 100.0
+	fd.name = "lentils"
+	fd.serving = 198
+	fd.dollars = (2.9 / 5) / nfs
+	fd.calories = 116 / nfs
+	fd.fat = 0 / nfs
+	fd.carbs = 20 / nfs
+	fd.fiber = 8 / nfs
+	fd.protein = 9 / nfs
 	return
 }
 
@@ -163,6 +186,18 @@ func ranch() (fd foodData) {
 	fd.calories = 150 / fd.serving
 	fd.fat = 16 / fd.serving
 	fd.carbs = 2 / fd.serving
+	fd.fiber = 0 / fd.serving
+	fd.protein = 0 / fd.serving
+	return
+}
+
+func italian() (fd foodData) {
+	fd.name = "italian"
+	fd.serving = 30
+	fd.dollars = 4 / (fd.serving * 16)
+	fd.calories = 150 / fd.serving
+	fd.fat = 16 / fd.serving
+	fd.carbs = 1 / fd.serving
 	fd.fiber = 0 / fd.serving
 	fd.protein = 0 / fd.serving
 	return
