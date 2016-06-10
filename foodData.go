@@ -109,7 +109,7 @@ func cucumber() (fd foodData) {
 	nfs := 100.0
 	fd.name = "cucumber"
 	fd.serving = 0
-	fd.dollars = 3
+	fd.dollars = 3 / (nfs * 5)
 	fd.calories = 15 / nfs
 	fd.fat = 0 / nfs
 	fd.carbs = 4 / nfs
@@ -127,6 +127,19 @@ func salmonFillet() (fd foodData) {
 	fd.carbs = 0
 	fd.fiber = 0
 	fd.protein = 37
+	return
+}
+
+func herring() (fd foodData) {
+	nfs := 3.5
+	fd.name = "herring"
+	fd.serving = 1
+	fd.dollars = 4
+	fd.calories = 110 * nfs
+	fd.fat = 8 * nfs
+	fd.carbs = 0 * nfs
+	fd.fiber = 0 * nfs
+	fd.protein = 11 * nfs
 	return
 }
 

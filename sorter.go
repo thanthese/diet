@@ -13,7 +13,7 @@ func (s sortable) Len() int           { return len(s.foods) }
 func (s sortable) Swap(i, j int)      { s.foods[i], s.foods[j] = s.foods[j], s.foods[i] }
 func (s sortable) Less(i, j int) bool { return s.cmp(s.foods[i], s.foods[j]) }
 
-func (ings ingredients) sortBy(fn cmp) ingredients {
+func (ings ingredients) sort(fn cmp) ingredients {
 	sort.Sort(sortable{ings, fn})
 	return ings
 }
