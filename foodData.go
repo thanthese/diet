@@ -4,201 +4,86 @@ package main
 
 const gramsInAPound = 453.592
 
-func spinachRaw() (fd foodData) {
+func dollarsPerPound(dollars float64) float64 {
+	return dollars / gramsInAPound
+}
+
+//////////////////////////////////////////////////////////////////////
+
+func spinach(factor float64) (ing ingredient) {
 	nfs := 100.0
-	fd.name = "spinach, raw"
-	fd.serving = 85
-	fd.dollars = 4 / gramsInAPound
-	fd.calories = 23 / nfs
-	fd.fat = 0 / nfs
-	fd.carbs = 4 / nfs
-	fd.fiber = 2 / nfs
-	fd.protein = 3 / nfs
-	return
+	return ingredient{
+		name:     "spinach",
+		dollars:  dollarsPerPound(4),
+		calories: 23 / nfs,
+		fat:      0 / nfs,
+		carbs:    4 / nfs,
+		fiber:    2 / nfs,
+		protein:  3 / nfs,
+	}.times(factor)
 }
 
-func avocado() (fd foodData) {
+func avocado(factor float64) (ing ingredient) {
 	nfs := 100.0
-	fd.name = "avocado"
-	fd.serving = 201
-	fd.dollars = 1 / 201.0
-	fd.calories = 160 / nfs
-	fd.fat = 15 / nfs
-	fd.carbs = 9 / nfs
-	fd.fiber = 7 / nfs
-	fd.protein = 2 / nfs
-	return
+	return ingredient{
+		name:     "avocado",
+		dollars:  1 / 201.0,
+		calories: 160 / nfs,
+		fat:      15 / nfs,
+		carbs:    9 / nfs,
+		fiber:    7 / nfs,
+		protein:  2 / nfs,
+	}.times(factor)
 }
 
-func lentils() (fd foodData) {
-	nfs := 100.0
-	fd.name = "lentils"
-	fd.serving = 198
-	fd.dollars = (2.9 / 5) / nfs
-	fd.calories = 116 / nfs
-	fd.fat = 0 / nfs
-	fd.carbs = 20 / nfs
-	fd.fiber = 8 / nfs
-	fd.protein = 9 / nfs
-	return
+func hempSeeds(factor float64) (ing ingredient) {
+	nfs := 30.0
+	return ingredient{
+		name:     "hemp seeds",
+		dollars:  12 / (nfs * 26),
+		calories: 170 / nfs,
+		fat:      13 / nfs,
+		carbs:    3 / nfs,
+		fiber:    3 / nfs,
+		protein:  10 / nfs,
+	}.times(factor)
 }
 
-func eggEach() (fd foodData) {
-	fd.name = "egg"
-	fd.serving = 1
-	fd.dollars = 4 / 12.0
-	fd.calories = 70
-	fd.fat = 5
-	fd.carbs = 0
-	fd.fiber = 0
-	fd.protein = 6
-	return
+func chiaSeeds(factor float64) (ing ingredient) {
+	nfs := 12.0
+	return ingredient{
+		name:     "chia seeds",
+		dollars:  12 / (nfs * 75),
+		calories: 60 / nfs,
+		fat:      3 / nfs,
+		carbs:    5 / nfs,
+		fiber:    5 / nfs,
+		protein:  3 / nfs,
+	}.times(factor)
 }
 
-func hempSeeds() (fd foodData) {
-	fd.name = "hemp seeds"
-	fd.serving = 30
-	fd.dollars = 12 / (fd.serving * 26)
-	fd.calories = 170 / fd.serving
-	fd.fat = 13 / fd.serving
-	fd.carbs = 3 / fd.serving
-	fd.fiber = 3 / fd.serving
-	fd.protein = 10 / fd.serving
-	return
+func oliveOil(factor float64) (ing ingredient) {
+	nfs := 14.0
+	return ingredient{
+		name:     "olive oil",
+		dollars:  12 / (nfs * 109),
+		calories: 130 / nfs,
+		fat:      14 / nfs,
+		carbs:    0 / nfs,
+		fiber:    0 / nfs,
+		protein:  0 / nfs,
+	}.times(factor)
 }
 
-func chiaSeeds() (fd foodData) {
-	fd.name = "chia seeds"
-	fd.serving = 12
-	fd.dollars = 12 / (fd.serving * 75)
-	fd.calories = 60 / fd.serving
-	fd.fat = 3 / fd.serving
-	fd.carbs = 5 / fd.serving
-	fd.fiber = 5 / fd.serving
-	fd.protein = 3 / fd.serving
-	return
-}
-
-func coconutOil() (fd foodData) {
-	fd.name = "coconut oil"
-	fd.serving = 14
-	fd.dollars = 12 / (fd.serving * 109)
-	fd.calories = 130 / fd.serving
-	fd.fat = 14 / fd.serving
-	fd.carbs = 0 / fd.serving
-	fd.fiber = 0 / fd.serving
-	fd.protein = 0 / fd.serving
-	return
-}
-
-func oliveOil() (fd foodData) {
-	fd.name = "olive oil"
-	fd.serving = 15
-	fd.dollars = 10 / (fd.serving * 67)
-	fd.calories = 120 / fd.serving
-	fd.fat = 14 / fd.serving
-	fd.carbs = 0 / fd.serving
-	fd.fiber = 0 / fd.serving
-	fd.protein = 0 / fd.serving
-	return
-}
-
-func almondButter() (fd foodData) {
-	fd.name = "almond butter"
-	fd.serving = 32
-	fd.dollars = 10 / (fd.serving * 24)
-	fd.calories = 210 / fd.serving
-	fd.fat = 18 / fd.serving
-	fd.carbs = 7 / fd.serving
-	fd.fiber = 3 / fd.serving
-	fd.protein = 6 / fd.serving
-	return
-}
-
-func sardinesCan() (fd foodData) {
-	nfs := 2.5
-	fd.name = "sardines can"
-	fd.serving = 1
-	fd.dollars = 24 / 12.0
-	fd.calories = 110 * nfs
-	fd.fat = 8 * nfs
-	fd.carbs = 0 * nfs
-	fd.fiber = 0 * nfs
-	fd.protein = 10 * nfs
-	return
-}
-
-func cucumber() (fd foodData) {
-	nfs := 100.0
-	fd.name = "cucumber"
-	fd.serving = 0
-	fd.dollars = 3 / (nfs * 5)
-	fd.calories = 15 / nfs
-	fd.fat = 0 / nfs
-	fd.carbs = 4 / nfs
-	fd.fiber = 0 / nfs
-	fd.protein = 1 / nfs
-	return
-}
-
-func salmonFillet() (fd foodData) {
-	fd.name = "salmon"
-	fd.serving = 1
-	fd.dollars = 20 / 7
-	fd.calories = 340
-	fd.fat = 20
-	fd.carbs = 0
-	fd.fiber = 0
-	fd.protein = 37
-	return
-}
-
-func herring() (fd foodData) {
-	nfs := 3.5
-	fd.name = "herring"
-	fd.serving = 1
-	fd.dollars = 4
-	fd.calories = 110 * nfs
-	fd.fat = 8 * nfs
-	fd.carbs = 0 * nfs
-	fd.fiber = 0 * nfs
-	fd.protein = 11 * nfs
-	return
-}
-
-func miniPeppersEach() (fd foodData) {
-	nfs := 3.0
-	fd.name = "mini peppers"
-	fd.serving = 1
-	fd.dollars = (10 / 6.0) / nfs
-	fd.calories = 25 / nfs
-	fd.fat = 0 / nfs
-	fd.carbs = 5 / nfs
-	fd.fiber = 1 / nfs
-	fd.protein = 1 / nfs
-	return
-}
-
-func ranch() (fd foodData) {
-	fd.name = "ranch"
-	fd.serving = 30
-	fd.dollars = 5 / (16.0 * fd.serving)
-	fd.calories = 150 / fd.serving
-	fd.fat = 16 / fd.serving
-	fd.carbs = 2 / fd.serving
-	fd.fiber = 0 / fd.serving
-	fd.protein = 0 / fd.serving
-	return
-}
-
-func italian() (fd foodData) {
-	fd.name = "italian"
-	fd.serving = 30
-	fd.dollars = 4 / (fd.serving * 16)
-	fd.calories = 150 / fd.serving
-	fd.fat = 16 / fd.serving
-	fd.carbs = 1 / fd.serving
-	fd.fiber = 0 / fd.serving
-	fd.protein = 0 / fd.serving
-	return
+func almondButter(factor float64) (ing ingredient) {
+	nfs := 32.0
+	return ingredient{
+		name:     "almond butter",
+		dollars:  10 / (nfs * 24),
+		calories: 210 / nfs,
+		fat:      18 / nfs,
+		carbs:    7 / nfs,
+		fiber:    3 / nfs,
+		protein:  6 / nfs,
+	}.times(factor)
 }

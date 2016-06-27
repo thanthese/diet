@@ -20,7 +20,7 @@ func (ings ingredients) sort(fn cmp) ingredients {
 
 func byName(a, b ingredient) bool     { return a.name < b.name }
 func byDollars(a, b ingredient) bool  { return a.dollars > b.dollars }
-func byG(a, b ingredient) bool        { return a.amt > b.amt }
+func byG(a, b ingredient) bool        { return a.factor > b.factor }
 func byNetCarbs(a, b ingredient) bool { return a.netCarbs() > b.netCarbs() }
 func byProtein(a, b ingredient) bool  { return a.protein > b.protein }
 func byFat(a, b ingredient) bool      { return a.fat > b.fat }
