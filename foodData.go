@@ -23,6 +23,32 @@ func spinach(factor float64) (ing ingredient) {
 	}.times(factor)
 }
 
+func broccoli(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "broccoli",
+		dollars:  0,
+		calories: 35 / nfs,
+		fat:      0 / nfs,
+		carbs:    7 / nfs,
+		fiber:    3 / nfs,
+		protein:  2 / nfs,
+	}.times(factor)
+}
+
+func brusselsSprouts(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "brussels sprouts",
+		dollars:  0,
+		calories: 36 / nfs,
+		fat:      0 / nfs,
+		carbs:    7 / nfs,
+		fiber:    3 / nfs,
+		protein:  3 / nfs,
+	}.times(factor)
+}
+
 func avocado(factor float64) (ing ingredient) {
 	nfs := 100.0
 	return ingredient{
@@ -60,6 +86,20 @@ func chiaSeeds(factor float64) (ing ingredient) {
 		fiber:    5 / nfs,
 		protein:  3 / nfs,
 	}.times(factor)
+
+}
+
+func almonds(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "almonds",
+		dollars:  dollarsPerPound(6),
+		calories: 575 / nfs,
+		fat:      49 / nfs,
+		carbs:    22 / nfs,
+		fiber:    12 / nfs,
+		protein:  21 / nfs,
+	}.times(factor)
 }
 
 func oliveOil(factor float64) (ing ingredient) {
@@ -69,6 +109,19 @@ func oliveOil(factor float64) (ing ingredient) {
 		dollars:  12 / (nfs * 109),
 		calories: 130 / nfs,
 		fat:      14 / nfs,
+		carbs:    0 / nfs,
+		fiber:    0 / nfs,
+		protein:  0 / nfs,
+	}.times(factor)
+}
+
+func coconutOil(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "coconut oil",
+		dollars:  0,
+		calories: 862 / nfs,
+		fat:      100 / nfs,
 		carbs:    0 / nfs,
 		fiber:    0 / nfs,
 		protein:  0 / nfs,

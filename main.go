@@ -4,9 +4,8 @@ import "fmt"
 
 func main() {
 	recipe := ingredients{
-		spinach(85),
-		eggEach(1),
-		eggEach(2),
+		eggEach(3),
+		spinach(100),
 	}.sort(byNetCarbs)
 	fmt.Print(header, breaks, recipe, breaks, recipe.sum("TOTAL"))
 }
