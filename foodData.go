@@ -39,7 +39,7 @@ func broccoli(factor float64) (ing ingredient) {
 func brusselsSprouts(factor float64) (ing ingredient) {
 	nfs := 100.0
 	return ingredient{
-		name:     "brussels sprouts",
+		name:     "b. sprouts",
 		dollars:  0,
 		calories: 36 / nfs,
 		fat:      0 / nfs,
@@ -75,6 +75,32 @@ func hempSeeds(factor float64) (ing ingredient) {
 	}.times(factor)
 }
 
+func onion(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "onion",
+		dollars:  0,
+		calories: 42 / nfs,
+		fat:      0 / nfs,
+		carbs:    10 / nfs,
+		fiber:    1 / nfs,
+		protein:  1 / nfs,
+	}.times(factor)
+}
+
+func redPepper(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "red pepper",
+		dollars:  0,
+		calories: 26 / nfs,
+		fat:      0 / nfs,
+		carbs:    6 / nfs,
+		fiber:    1 / nfs,
+		protein:  1 / nfs,
+	}.times(factor)
+}
+
 func chiaSeeds(factor float64) (ing ingredient) {
 	nfs := 12.0
 	return ingredient{
@@ -86,7 +112,20 @@ func chiaSeeds(factor float64) (ing ingredient) {
 		fiber:    5 / nfs,
 		protein:  3 / nfs,
 	}.times(factor)
+}
 
+// very unscientific
+func cheese(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "cheese",
+		dollars:  0,
+		calories: 375 / nfs,
+		fat:      31 / nfs,
+		carbs:    2 / nfs,
+		fiber:    0 / nfs,
+		protein:  22 / nfs,
+	}.times(factor)
 }
 
 func almonds(factor float64) (ing ingredient) {
