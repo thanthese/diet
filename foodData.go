@@ -179,3 +179,86 @@ func almondButter(factor float64) (ing ingredient) {
 		protein:  6 / nfs,
 	}.times(factor)
 }
+
+func bananas(factor float64) (ing ingredient) {
+	nfs := 100.0
+	return ingredient{
+		name:     "bananas",
+		dollars:  0,
+		calories: 89 / nfs,
+		fat:      0 / nfs,
+		carbs:    23 / nfs,
+		fiber:    3 / nfs,
+		protein:  1 / nfs,
+	}.times(factor)
+}
+
+func lentils(factor float64) (ing ingredient) {
+	// http://nutritiondata.self.com/facts/legumes-and-legume-products/4338/2
+	nfs := 100.0
+	return ingredient{
+		name:     "lentils",
+		dollars:  (2.79 / gramsInAPound) / 3,
+		calories: 116 / nfs,
+		fat:      0 / nfs,
+		carbs:    20 / nfs,
+		fiber:    8 / nfs,
+		protein:  9 / nfs,
+	}.times(factor)
+}
+
+func apples(factor float64) (ing ingredient) {
+	// http://nutritiondata.self.com/facts/fruits-and-fruit-juices/1809/2
+	nfs := 100.0
+	return ingredient{
+		name:     "apples",
+		dollars:  2.50 / gramsInAPound,
+		calories: 52 / nfs,
+		fat:      0 / nfs,
+		carbs:    14 / nfs,
+		fiber:    2 / nfs,
+		protein:  0 / nfs,
+	}.times(factor)
+}
+
+func pintoBeans(factor float64) (ing ingredient) {
+	// http://nutritiondata.self.com/facts/legumes-and-legume-products/4430/2
+	nfs := 100.0
+	return ingredient{
+		name:     "pinto beans",
+		dollars:  2 / gramsInAPound,
+		calories: 143 / nfs,
+		fat:      1 / nfs,
+		carbs:    26 / nfs,
+		fiber:    9 / nfs,
+		protein:  9 / nfs,
+	}.times(factor)
+}
+
+func brownRice(factor float64) (ing ingredient) {
+	// http://nutritiondata.self.com/facts/cereal-grains-and-pasta/5707/2
+	nfs := 100.0
+	return ingredient{
+		name:     "brown rice",
+		dollars:  2 / gramsInAPound,
+		calories: 111 / nfs,
+		fat:      1 / nfs,
+		carbs:    23 / nfs,
+		fiber:    2 / nfs,
+		protein:  3 / nfs,
+	}.times(factor)
+}
+
+func strawberries(factor float64) (ing ingredient) {
+	// http://nutritiondata.self.com/facts/fruits-and-fruit-juices/2064/2
+	nfs := 100.0
+	return ingredient{
+		name:     "strawberries",
+		dollars:  2.50 / gramsInAPound,
+		calories: 32 / nfs,
+		fat:      0 / nfs,
+		carbs:    8 / nfs,
+		fiber:    2 / nfs,
+		protein:  1 / nfs,
+	}.times(factor)
+}
